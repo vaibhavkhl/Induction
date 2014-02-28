@@ -1,0 +1,28 @@
+
+<% @previous_updates.each do |update| %>
+<div class="post">
+  <div class="update">
+      <%= update.content %>
+  </div>
+      <%= update.created_at %>
+
+</br>
+ Comment:
+        <div class="comment"> 
+           <%= update.comments.last.content unless update.comments.empty?  %>
+        </div>
+ </br>
+
+
+<div class="comment_form">
+            <%= form_for(@comment, url: create_comment_path) do |f| %>
+            <%= hidden_field_tag 'update_id', update.id %>   
+            <%= f.label 'Add Comment'%>
+            <%= f.text_area :content %>
+            
+            <%= f.submit "Add", class: "btn btn-small" %>
+            </br>
+            <% end %>
+ </div>           
+<% end %>
+</div>

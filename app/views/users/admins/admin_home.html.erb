@@ -1,0 +1,51 @@
+Admin home page
+
+<%= current_user.email %>
+
+<div>
+    <%= link_to "tag mentor", tag_mentor_path %>
+</div>
+<div>
+    Your Mentees <%= current_user.mentees.first.email %>
+</div>
+<div>
+<h1>List of Users</h1>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th style="width:5%;"></th>
+            <th>Employee ID</th>
+            <th>Name</th>
+            <th>Email Id</th>
+            <th>Mobile No.</th>
+            <th>Expertise</th>
+            <th>Card No.</th>
+            <th>Location</th>
+            <th>Current Role</th>
+            <th>Select Role</th>
+            <th></th>
+        </tr>
+    </thead>
+    <% @users.each do |user| %>
+        <%= form_tag edit_role_path do %>
+    	<tr>
+    	  <td></td>
+    	  <td></td>
+    	  <td></td>
+		  <td><%= user.email %></td>
+		  <td></td>
+		  <td></td>
+		  <td></td>
+		  <td></td>
+		  <td>
+
+            <%= user.roles[0].name unless user.roles.empty? %>
+          </td>
+          <%= hidden_field_tag 'user_id', user.id %>
+          <td><%= select_tag "role_id", options_from_collection_for_select(@roles, 'id', 'name') %></td>
+          <td><%= submit_tag "Save" %></td>
+  		</tr>
+        <% end %>
+	<% end %>
+</table>
+</div>

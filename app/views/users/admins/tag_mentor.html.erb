@@ -1,0 +1,23 @@
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th style="width:5%;"></th>
+            <th>Email</th>
+            <th>Current Mentors</th>
+            <th>Select Mentors</th>
+            <th></th>
+        </tr>
+    </thead>
+    <% @users.each do |user|%>
+    	<%= form_tag tag_mentor_path do %>
+    	<tr>
+    	  <td></td>
+          <td><%= user.email %></td>
+    	  <td><%= user.mentors.first.email unless user.mentors.empty?%></td>
+    	      <%= hidden_field_tag 'mentee_id', user.id %>
+    	  <td><%= select_tag "mentor_id", options_from_collection_for_select(@users, 'id', 'email') %></td>
+    	  <td><%= submit_tag "Save" %></td>
+    	</tr>
+    	<% end %>
+    <% end %>
+</table>
