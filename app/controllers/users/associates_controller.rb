@@ -3,13 +3,31 @@ class Users::AssociatesController <  ApplicationController
 	authorize_resource class: User
 	
 	def associate_home
-		@update = current_user.updates.build
+		
 		@comment = current_user.comments.build
-        if current_user.mentors.empty?
-            @previous_updates= current_user.mentees.first.updates    
+        if current_user.mentors.empty? && current_user.mentees.empty?
+               
+        elsif current_user.mentees.empty?
+		    #@previous_updates = current_user.updates
+            p "-------------------------inside mentee"
+            mentee_home
         else
-		    @previous_updates = current_user.updates
+            mentor_home
         end
+    end
+    
+    def mentee_home
+        p 'inside mentee home---------------------'
+        @update = Update.new(user_id: current_user)
+        @previous_updates = current_user.updates
+        p "-----------------------#{@previous_updates.count}"
+        render 'mentee_home'
+
+    end
+
+    def mentor_home
+        @previous_updates = current_user.mentees.first.updates
+        render 'mentor_home'
     end
 
     def create_update

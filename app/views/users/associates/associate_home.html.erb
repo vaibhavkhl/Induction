@@ -2,22 +2,7 @@ Associate home page
 
 <%= current_user.email %>
 
-<br>
-Your Mentor-
-<br>
-<%= current_user.mentors.first.email unless current_user.mentors.empty? %>
 
-<% unless current_user.mentors.empty?%>
-
-<div>
-	<%= render 'update' %>
-</div>
-<% end %>
-<div class="">
-	<%= render 'previous_updates' %>
-
-</div>
-</br>
 
 
 <!-- <% unless current_user.mentees.empty?%>

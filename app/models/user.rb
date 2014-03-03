@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
   def assign_default_role
     Rails.logger.debug "------------------------"
     self.roles << Role.find_by(name: 'associate')
-    self.save 
+    #self.save 
   end
 
   def has_role?(role_sym)

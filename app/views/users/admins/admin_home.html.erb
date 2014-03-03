@@ -5,12 +5,10 @@ Admin home page
 <div>
     <%= link_to "tag mentor", tag_mentor_path %>
 </div>
-<div>
-    Your Mentees <%= current_user.mentees.first.email %>
-</div>
+
 <div>
 <h1>List of Users</h1>
-<table class="table table-striped">
+<table id="users" class="table table-striped">
     <thead>
         <tr>
             <th style="width:5%;"></th>
@@ -26,6 +24,7 @@ Admin home page
             <th></th>
         </tr>
     </thead>
+    <tbody>
     <% @users.each do |user| %>
         <%= form_tag edit_role_path do %>
     	<tr>
@@ -47,5 +46,6 @@ Admin home page
   		</tr>
         <% end %>
 	<% end %>
+    </tbody>
 </table>
 </div>

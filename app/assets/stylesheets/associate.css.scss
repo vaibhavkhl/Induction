@@ -15,8 +15,11 @@
 	width:200px;
 }
 
-.comment{
-	font-size:18px;
+.comment-area{
+  width:300px;
+  background-color:#CCFF99;
+	font-size:10px;
+  padding-top:5px;
 }
 
 .update{
@@ -24,4 +27,14 @@
   font-size:18px;
   font-family:"Helevetica Neue",Helvetica,sans-serif;
   
+}
+
+.update_form {
+  width:300px;
+}
+
+.hr {
+width:300px;
+  margin: 0px;
+  height: 1px;
 }
