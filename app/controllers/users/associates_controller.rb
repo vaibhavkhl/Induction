@@ -26,9 +26,14 @@ class Users::AssociatesController <  ApplicationController
     end
 
     def mentor_home
-        @previous_updates = current_user.mentees.first.updates
+        #@previous_updates = current_user.mentees.first.updates
         render 'mentor_home'
     end
+    
+    # def view_mentee_update
+    #     @user = User.find_by(id: params[user_id])
+    #     @previous_updates = @user.updates
+    # end
 
     def create_update
     	@update = current_user.updates.build(update_params)

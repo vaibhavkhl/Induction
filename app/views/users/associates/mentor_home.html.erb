@@ -1,5 +1,28 @@
-Your mentee <%= current_user.mentees.first.email%>
+<h3>Your mentees</h3>
 
-<div>
-<%= render 'previous_updates'%>
+<ul class="nav nav-pills">
+  <% current_user.mentees.each do |mentee| %>
+
+
+  <li>
+    <a href="#<%= mentee.id %>" data-toggle="tab"><%= mentee.email %></a>
+  </li>
+
+
+
+
+  <% end %>
+</ul>
+
+
+<div class="tab-content">
+<% current_user.mentees.each do |mentee| %>
+  
+
+  <div class="tab-pane" id="<%= mentee.id %>">
+    <% @previous_updates = mentee.updates  %>  
+    <%= render 'previous_updates' %>
+  </div>  
+
+<% end %>
 </div>

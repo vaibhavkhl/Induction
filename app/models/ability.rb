@@ -33,7 +33,7 @@ class Ability
     if user.has_role? :admin
       can :manage, :all
     else
-      can [:associate_home, :create_update, :create_comment] , User
+      can [:associate_home, :create_update, :create_comment, :view_mentee_update] , User
     end
   end
 end

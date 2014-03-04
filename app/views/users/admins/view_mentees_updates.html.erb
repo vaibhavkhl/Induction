@@ -1,0 +1,10 @@
+<h3>Mentees Updates</h3>
+
+<% @mentees.each do |mentee| %>
+    <div>
+      <%= mentee.email %></br>
+      <% mentee.updates.each do |update| %>
+        <%= update.content %> <%= time_ago_in_words(update.created_at) %></br>
+      <% end %>
+    </div></br>
+<% end %>

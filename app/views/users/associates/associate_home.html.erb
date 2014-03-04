@@ -2,7 +2,7 @@ Associate home page
 
 <%= current_user.email %>
 
-
+<%= image_tag current_user.avatar.url(:thumb) %>
 
 
 <!-- <% unless current_user.mentees.empty?%>

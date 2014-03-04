@@ -3,6 +3,8 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'
 
+gem 'rails-observers'
+
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 
@@ -22,7 +24,7 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 
 # Jquery Datatables
-gem 'jquery-datatables-rails' , git: 'git://github.com/rweng/jquery-datatables-rails.git'
+gem 'jquery-datatables-rails' #, git: 'git://github.com/rweng/jquery-datatables-rails.git'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
@@ -31,11 +33,18 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 
 gem 'bootstrap-sass', '2.3.2.0'
+
 # authentication
 gem 'devise'
 
 # authorization
 gem 'cancan'
+
+# importing excel
+gem 'roo'
+
+# image uploading
+gem 'paperclip'
 
 group :development do
 	gem 'better_errors'

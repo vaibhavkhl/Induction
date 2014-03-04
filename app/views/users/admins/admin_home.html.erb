@@ -7,6 +7,10 @@ Admin home page
 </div>
 
 <div>
+    <%= link_to "view mentees updates", mentees_updates_path %>
+</div>
+
+<div>
 <h1>List of Users</h1>
 <table id="users" class="table table-striped">
     <thead>
@@ -16,7 +20,7 @@ Admin home page
             <th>Name</th>
             <th>Email Id</th>
             <th>Mobile No.</th>
-            <th>Expertise</th>
+            <th>Technology</th>
             <th>Card No.</th>
             <th>Location</th>
             <th>Current Role</th>
@@ -29,13 +33,13 @@ Admin home page
         <%= form_tag edit_role_path do %>
     	<tr>
     	  <td></td>
-    	  <td></td>
-    	  <td></td>
+    	  <td><%= user.emp_id %></td>
+    	  <td><%= user.name %></td>
 		  <td><%= user.email %></td>
-		  <td></td>
-		  <td></td>
-		  <td></td>
-		  <td></td>
+		  <td><%= user.phn_no %></td>
+		  <td><%= user.technology %></td>
+		  <td><%= user.card_no %></td>
+		  <td><%= user.location %></td>
 		  <td>
 
             <%= user.roles[0].name unless user.roles.empty? %>
@@ -49,3 +53,9 @@ Admin home page
     </tbody>
 </table>
 </div>
+
+<h2>Import Users</h2>
+<%= form_tag import_users_path, multipart: true do %>
+  <%= file_field_tag :file %>
+  <%= submit_tag "Import" %>
+<% end %>

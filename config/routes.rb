@@ -13,6 +13,11 @@ OdcInduction::Application.routes.draw do
    post '/edit_role' => 'users/admins#edit_role'
    post '/create_update' => 'users/associates#create_update'
    post '/create_comment' => 'users/associates#create_comment'
+   
+   post '/import_users' => 'users/admins#import_users'
+   get '/mentees_updates' => 'users/admins#view_mentees_updates'
+
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

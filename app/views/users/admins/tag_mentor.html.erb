@@ -15,9 +15,22 @@
           <td><%= user.email %></td>
     	  <td><%= user.mentors.first.email unless user.mentors.empty?%></td>
     	      <%= hidden_field_tag 'mentee_id', user.id %>
-    	  <td><%= select_tag "mentor_id", options_from_collection_for_select(@users, 'id', 'email') %></td>
+    	  
+
+
+          <td><input type="text" list="mentors" name="email" ></td>
+        
+          
+
+
+          
     	  <td><%= submit_tag "Save" %></td>
     	</tr>
     	<% end %>
     <% end %>
 </table>
+<datalist id="mentors">
+<% @users.each do |user| %>
+<option value="<%= user.email %>" ></option>
+<% end %>
+</datalist>

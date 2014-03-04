@@ -11,6 +11,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :validatable
   
+  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
+
   after_commit :assign_default_role, on: :create
   
   def assign_default_role
@@ -21,5 +23,16 @@ class User < ActiveRecord::Base
 
   def has_role?(role_sym)
     roles.any? { |r| r.name.underscore.to_sym == role_sym }
-  end       
+  end  
+
+  def self.import_users(file)
+    spreadsheet = Roo::Excelx.new(file.path, nil, :ignore)
+    header = spreadsheet.row(1)
+    (2..spreadsheet.last_row).each do |i|
+      row = Hash[[header, spreadsheet.row(i)].transpose]
+      product = new
+      product.attributes = row.to_hash
+      product.save!
+    end
+  end     
 end
