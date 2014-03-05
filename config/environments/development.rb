@@ -23,7 +23,7 @@ OdcInduction::Application.configure do
   port:                 587,
   domain:               'induction.com',
   user_name:            'vaibhav.khl',
-  password:             '$nvidiageforce12',
+  password:             '***********',
   authentication:       'plain',
   enable_starttls_auto: true  }
 
