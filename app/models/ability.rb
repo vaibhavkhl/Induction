@@ -30,10 +30,12 @@ class Ability
     # https://github.com/ryanb/cancan/wiki/Defining-Abilities
 
     user ||= User.new # in case of guest
-    if user.has_role? :admin
+    if user.has_role? :superadmin
       can :manage, :all
+    elsif user.has_role? :admin
+      can [:admin_home, :import_users], User
     else
-      can [:associate_home, :create_update, :create_comment, :view_mentee_update] , User
+      can [:associate_home, :create_update, :create_comment], User
     end
   end
 end

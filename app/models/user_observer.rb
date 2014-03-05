@@ -1,5 +1,5 @@
 class UserObserver < ActiveRecord::Observer
   def after_create(user)
-    # send email to user
+    UserMailer.welcome_email(user).deliver
   end
 end

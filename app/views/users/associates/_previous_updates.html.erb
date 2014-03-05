@@ -2,7 +2,7 @@
 <% @previous_updates.each do |update| %>
   <div class="post">
     <div class="user">
-      User <%= update.user_id %>
+      <%= image_tag current_user.avatar.url(:thumb) %><%= get_user(update.user_id).name %>
     </div>
     <div class="update">
       <%= update.content %>
@@ -33,5 +33,6 @@
         <%= f.text_area :content %>
         <%= f.submit "Add", class: "btn btn-small" %>
       <% end %></br>
-    </div>           
+    </div>  
+    </div>         
 <% end %>
