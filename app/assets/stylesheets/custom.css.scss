@@ -115,7 +115,13 @@ th,td{
   text-align:center;
 }
 /* footer */
-
+.footer{
+  
+  position:fixed;
+  bottom:0;
+  background-color:white;
+  width:940px;
+}
 footer {
   margin-top: 45px;
   padding-top: 5px;
@@ -199,3 +205,50 @@ input {
 .buttons{
   width:70px;
 }
+/**** Side bar ****/
+#side-nav .navbar-inverse{
+  background-color:white;
+}
+
+#side-nav .navbar-inverse .navbar-collapse{
+  border:0px;
+}
+#side-nav .nav li {
+  width:100%;
+  text-align:left;
+}
+#side-nav .nav li a:hover{
+  background-color:#eee;
+}
+
+#side-nav .navbar-inverse .nav > .active a {
+color: #fff;
+background-color: #999;
+}
+#side-nav .navbar-inverse .nav a, .admin .navbar-inverse .nav a:hover {
+color: #428bca;
+text-decoration: none;
+text-shadow:none;
+}
+
+ #side-nav {
+padding-left: 0px;
+padding-right: 0px;
+border-right: 1px solid #ccc;
+}
+#side-nav .nav > li > a {
+position: relative;
+display: block;
+padding: 10px 10px;
+}
+
+/**** Admin Page ****/
+.admin{
+  padding-top:10px;
+}
+.admin h3{
+  text-align:left;
+}
+.admin hr{
+  color:#999;
+  }

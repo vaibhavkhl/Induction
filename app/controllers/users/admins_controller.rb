@@ -38,5 +38,21 @@ class Users::AdminsController <  ApplicationController
     
     def view_mentees_updates
         @mentees = get_mentees
+        @comment = current_user.comments.build
+    end
+
+    def edit_users
+    end
+
+    def destroy_user
+        user = User.find_by(id: params[:user_id])
+        user.delete
+        flash.now[:success] = "User deleted"
+        redirect_to admin_path
+    end
+
+    def change_role
+        @users = User.all
+        @roles = Role.all
     end
 end

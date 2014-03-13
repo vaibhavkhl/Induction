@@ -1,4 +1,27 @@
-<table class="table table-striped">
+<div class="admin tag-mentor row">
+<div class="col-lg-2" id="side-nav">
+
+<div class="navbar navbar-inverse" role="navigation">
+  <div class="navbar navbar-collapse collapse">
+    <ul class="nav">
+    
+    <li>
+    <%= link_to "Roles", change_role_path %>
+  </li>
+    <li class="active">  <%= link_to "Tag Mentor", tag_mentor_path %></li>
+
+  <li>
+
+    <%= link_to "Mentees Updates", mentees_updates_path %>
+  </li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col-lg-10">
+    <h3>List of New Joinees</h3>
+    <hr/>
+<table id= "users" class="table table-striped">
     <thead>
         <tr>
             <th style="width:5%;"></th>
@@ -34,3 +57,5 @@
 <option value="<%= user.email %>" ></option>
 <% end %>
 </datalist>
+</div>
+</div>

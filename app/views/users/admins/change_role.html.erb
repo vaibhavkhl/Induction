@@ -1,67 +1,53 @@
-
-<div class="admin row">
+<div class="admin roles row">
 <div class="col-lg-2" id="side-nav">
-
 <div class="navbar navbar-inverse" role="navigation">
   <div class="navbar navbar-collapse collapse">
     <ul class="nav">
-    
-     <li>
+     <li class="active">
     <%= link_to "Roles", change_role_path %>
   </li>
     <li>  <%= link_to "Tag Mentor", tag_mentor_path %></li>
-
   <li>
-
     <%= link_to "Mentees Updates", mentees_updates_path %>
   </li>
- 
 </ul>
 </div>
 </div>
 </div>
-
 <div class="col-lg-10">
-  
 <h3>List of Users</h3>
-<hr />
+<hr/>
 <table id="users" class="table table-striped">
     <thead>
         <tr>
+            <th style="width:5%;"></th>
             <th>Employee ID</th>
             <th>Name</th>
             <th>Email Id</th>
             <th>Mobile No.</th>
-            <th>Technology</th>
-            <th>Card No.</th>
-            <th>Location</th>
             <th>Current Role</th>
+            <th>Select Role</th>
             <th></th>
         </tr>
     </thead>
     <tbody>
     <% @users.each do |user| %>
-       
     	<tr>
+    	  <td></td>
     	  <td><%= user.emp_id %></td>
     	  <td><%= user.name %></td>
 		    <td><%= user.email %></td>
-		    <td><%= user.phn_no %></td>
-		    <td><%= user.technology %></td>
-		    <td><%= user.card_no %></td>
-		    <td><%= user.location %></td>
+		    <td><%= user.phn_no %></td>z
 		    <td><%= user.roles[0].name unless user.roles.empty? %></td>
-            
-  		  <td><%= link_to 'Destroy', destroy_user_path(user_id: user.id), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-primary btn-sm'%></td>  
-          
-      </tr>
+        <td>
+            <%= form_tag edit_role_path do %>
+            <%= hidden_field_tag 'user_id', user.id %>
+       <%= select_tag "role_id", options_from_collection_for_select(@roles, 'id', 'name') %></td>
+        <td><%= submit_tag "Save" %></td>
+  		    <% end %>
+        </tr>
 	<% end %>
     </tbody>
 </table>
-<h2>Import Users</h2>
-<%= form_tag import_users_path, multipart: true do %>
-  <%= file_field_tag :file %>
-  <%= submit_tag "Import" %>
-<% end %>
 </div>
 </div>

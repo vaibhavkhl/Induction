@@ -21,9 +21,9 @@ OdcInduction::Application.configure do
   config.action_mailer.smtp_settings = {
   address:              'smtp.gmail.com',
   port:                 587,
-  domain:               'induction.com',
+  domain:               'gmail.com',
   user_name:            'vaibhav.khl',
-  password:             '***********',
+  password:             '$nvidiageforce12',
   authentication:       'plain',
   enable_starttls_auto: true  }
 

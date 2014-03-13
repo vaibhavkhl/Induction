@@ -1,7 +1,14 @@
-Your mentor <%= current_user.mentors.first.email%>
-
-<div class="update_form">
-	<%= render 'update' %>
+<div class="mentee row">
+	<div class="col-lg-2">
+		<%= image_tag current_user.avatar.url(:medium), class: 'img-rounded' %>
+		<div class="name"><%= current_user.name %></div>
+	</div>
+	<div class="col-lg-10">
+		<div class="update_form">
+			<%= render 'updates/update' %>
+		</div>
+        <div class="updates_mentee">
+		    <%= render 'updates/previous_updates' %>
+		</div>
+	</div>
 </div>
-
-<%= render 'previous_updates'%>

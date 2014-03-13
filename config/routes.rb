@@ -11,13 +11,18 @@ OdcInduction::Application.routes.draw do
    get '/tag_mentor' => 'users/admins#tag_mentor'
    post '/tag_mentor' => 'users/admins#tag_mentor_update'
    post '/edit_role' => 'users/admins#edit_role'
-   post '/create_update' => 'users/associates#create_update'
-   post '/create_comment' => 'users/associates#create_comment'
+   get '/change_role' => 'users/admins#change_role'
+   #post '/create_update' => 'users/associates#create_update'
+   #post '/create_comment' => 'comment#create_comment'
    
    post '/import_users' => 'users/admins#import_users'
    get '/mentees_updates' => 'users/admins#view_mentees_updates'
+   
+   delete '/destroy_user' => 'users/admins#destroy_user'
+   #delete '/destroy_comment' => 'users/associates#destroy_comment'
 
-
+   resources :comments, only: [:destroy, :create]
+   resources :updates, only: [:create]
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

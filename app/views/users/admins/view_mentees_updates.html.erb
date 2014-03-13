@@ -1,10 +1,68 @@
+<div class="admin mentee-update row"> 
+<div class="col-lg-2" id="side-nav">
+
+<div class="navbar navbar-inverse" role="navigation">
+  <div class="navbar navbar-collapse collapse">
+    <ul class="nav">
+    
+    <li>
+    <%= link_to "Roles", change_role_path %>
+  </li>
+    <li>  <%= link_to "Tag Mentor", tag_mentor_path %></li>
+
+  <li class="active">
+
+    <%= link_to "Mentees Updates", mentees_updates_path %>
+  </li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col-lg-10">
 <h3>Mentees Updates</h3>
+<hr />
+<table class="table table-striped">
+  <thead>
+    <tr>
+    	<td>Name</td>
+    	<td>Emp Id</td>
+    	<td>mentor Name</td>
+    	<td>Latest Update</td>
+    	<td>Time</td>
+    </tr>
+  </thead>
+  <tbody>
 
 <% @mentees.each do |mentee| %>
-    <div>
-      <%= mentee.email %></br>
-      <% mentee.updates.each do |update| %>
-        <%= update.content %> <%= time_ago_in_words(update.created_at) %></br>
-      <% end %>
-    </div></br>
+
+    <tr>
+      <td>
+        <a href="#<%= mentee.id %>" data-toggle="tab"><%= mentee.email %></a>
+      </td>
+      <td><%= mentee.emp_id %></td>
+      <td><%= mentee.mentors.first.email %></td>
+        <% unless mentee.updates.empty?%> 
+      <td><%= mentee.updates.first.content %> </td>
+      <td><%= time_ago_in_words(mentee.updates.first.created_at) %></td>
+        <% end %>
+    </tr>
 <% end %>
+</tbody>
+</table>
+
+
+
+<div class="tab-content">
+		<% @mentees.each do |mentee| %>
+		  
+
+		  <div class="tab-pane" id="<%= mentee.id %>">
+		    <% @previous_updates = mentee.updates  %>  
+		    <%= render 'users/associates/previous_updates' %>
+		  </div>  
+
+		<% end %>
+
+    <div>
+     
+</div>

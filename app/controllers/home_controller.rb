@@ -13,8 +13,10 @@ class HomeController < ApplicationController
   private
 
   def roles_homepage
-    if current_user.has_role? [:superadmin,:admin]
+    if current_user.has_role? :superadmin
     	redirect_to admin_path
+    elsif current_user.has_role? :admin
+      redirect_to admin_path
     else
     	redirect_to associate_path
     end

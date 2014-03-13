@@ -6,9 +6,9 @@
 }
 
 .post{
-  background-color:#ecf0f1;
+  background-color:white;
   padding:20px;
-  border-left:2px solid #bbdff8;
+  
 }
 
 .comment_form{
@@ -17,9 +17,14 @@
 
 .comment-area{
   width:300px;
-  background-color:#CCFFFF;
-	font-size:10px;
-  padding-top:5px;
+  background-color:#ecf0f1;
+	font-size:14px;
+  padding:5px;
+  border-left:2px solid #bbdff8;
+}
+
+.comment-area .user {
+color: #59AFEB;
 }
 
 .update{
@@ -32,16 +37,81 @@
 .update_form {
   width:300px;
 }
+.mentee .update_form{
+  position: fixed;
+background-color: white;
+top: 50px;
+padding-top: 20px;
+width:100%;
+z-index:2;
+}
+.mentee .mentee-updates{
+  position: relative;
+  top: 150px;
+}
+.mentee-updates .btn-sm{
+  width: 30%;
+margin-left: 143px;
 
+}
 .hr {
 width:300px;
   margin: 0px;
   height: 1px;
 }
-.mentor .span9{
+.mentee .col-lg-10,.mentor .col-lg-10{
+  position:relative;
   min-height:600px;
+  left: 238px;
 }
 
-.mentor .span3{
+.mentee .col-lg-2, .mentor .col-lg-2{
   min-height:600px;
+  border-right:1px solid #ccc;
+  position:fixed;
+}
+.mentee .col-lg-2 img,.mentor .col-lg-2 img {
+width: 180px;
+height: 180px;
+margin-left: 0px;
+}
+.mentee-updates h1{
+  font-size:30px;
+  text-align:left;
+}
+
+.time{
+  color:#999;
+}
+.update-area{
+  width: 50%;
+height: 118px;
+
+}
+#new_update .btn {
+width: 10%;
+position: relative;
+left: 541px;
+}
+#update_content{
+  height: 84px;
+}
+.mentee{
+  padding-top:15px;
+}
+
+.delete_icon {
+  margin-left: 208px;
+}
+
+.name {
+  display: block;
+  font-size: 26px;
+  line-height: 30px;
+  font-weight: bold;
+  padding-top: 10px;
+}
+
+.mentee-updates {
+  background-color: C2DEEA;
 }

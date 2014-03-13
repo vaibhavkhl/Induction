@@ -23,6 +23,8 @@ gem 'coffee-rails', '~> 4.0.0'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
+gem 'jquery-ui-rails'
+
 # Jquery Datatables
 gem 'jquery-datatables-rails' #, git: 'git://github.com/rweng/jquery-datatables-rails.git'
 
@@ -39,6 +41,14 @@ gem 'devise'
 
 # authorization
 gem 'cancan'
+
+group :devutility do
+  gem "mysql2"
+  gem "distribute", git: 'git://githuben.intranet.mckinsey.com/AppDev/distribute.git'
+  gem "crypto", git: 'git://githuben.intranet.mckinsey.com/AppDev/crypto.git'
+  gem 'capistrano' , '2.9.0'
+  gem 'rvm-capistrano'
+end
 
 # importing excel
 gem 'roo'
