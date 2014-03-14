@@ -1,14 +1,15 @@
-<h1>Updates -</h1>
+<div class="mentee-updates">
+<h1>Updates</h1>
 <% @previous_updates.each do |update| %>
   <div class="post">
     <div class="user">
-      <%= image_tag current_user.avatar.url(:thumb) %><%= get_user(update.user_id).name %>
+     <%= get_user(update.user_id).name %>
     </div>
     <div class="update">
       <%= update.content %>
     </div>
     <div class="time"> 
-      <%= time_ago_in_words(update.created_at) %>
+      <%= "#{time_ago_in_words(update.created_at)} ago" %>
     </div>
     </br>
     <% unless update.comments.empty? %>
@@ -16,23 +17,27 @@
         <div class="comment-area">
           <div class="user"> 
             User <%= comment.user_id%>
+          
+            
+          <% if current_user.id == comment.user_id then %>
+          <%= link_to image_tag("DeleteRed.png"), comments_path(comment,update_id: update.id), remote: true, method: :delete, data: { confirm: 'Are you sure?' } ,class: 'delete_icon'%>
+          <% end %>  
           </div>
-          <%= comment.content %>
           <div class="text-muted">
             <%= time_ago_in_words(comment.created_at)%>
+          </div>
+          <div class="comment">
+          <%= comment.content %>
+          
           </div>
         </div>
         <div class="hr"><hr/></div>
       <% end %>
     <% end %>
     </br>
-    <div class="comment_form">
-      <%= form_for(@comment, url: create_comment_path) do |f| %>
-        <%= hidden_field_tag 'update_id', update.id %>   
-        <%= f.label 'Add Comment'%>
-        <%= f.text_area :content %>
-        <%= f.submit "Add", class: "btn btn-small" %>
-      <% end %></br>
-    </div>  
+    <% if current_user.has_role? :associate then %>
+    <%= render partial: "comment", locals: { comment: @comment, update: update } %> 
+    <% end %>
     </div>         
 <% end %>
+</div>

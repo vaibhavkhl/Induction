@@ -4,7 +4,7 @@ class UpdatesController < ApplicationController
     if @update.save
       flash.now[:success] = "Your update received" 
     else
-      flash[:error] = "error"
+      flash[:error] = "Some error occured."
     end
       redirect_to associate_path
   end	

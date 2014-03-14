@@ -43,7 +43,7 @@ gem 'devise'
 gem 'cancan'
 
 group :devutility do
-  gem "mysql2"
+  #gem "mysql2"
   gem "distribute", git: 'git://githuben.intranet.mckinsey.com/AppDev/distribute.git'
   gem "crypto", git: 'git://githuben.intranet.mckinsey.com/AppDev/crypto.git'
   gem 'capistrano' , '2.9.0'

@@ -101,7 +101,8 @@ left: 541px;
 }
 
 .delete_icon {
-  margin-left: 208px;
+  float:right;
+  padding-right: 10px;
 }
 
 .name {
@@ -114,4 +115,8 @@ left: 541px;
 
 .mentee-updates {
   background-color: C2DEEA;
+}
+.mentee-updates .username{
+  float:left;
+  width: 90%;
 }

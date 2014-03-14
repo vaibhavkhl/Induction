@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :mentees, class_name: "User", foreign_key: "mentor_id", join_table: "mentees_mentors", association_foreign_key: "mentee_id"
   
   has_many :updates
-  has_many :comments
+  has_many :comments, :dependent => :destroy
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,

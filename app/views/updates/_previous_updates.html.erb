@@ -16,13 +16,20 @@
       <% update.comments.sort.each do |comment| %>
         <div class="comment-area">
           <div class="user"> 
-            User <%= comment.user_id%>
+
+            <div class="username"><%= get_user(comment.user_id).name unless get_user(comment.user_id).nil? %></div>
           
             
           <% if current_user.id == comment.user_id then %>
-          <%= link_to image_tag("DeleteRed.png"), comment, remote: true, method: :delete, data: { confirm: 'Are you sure?' } ,class: 'delete_icon'%>
+          <%= link_to raw('<span class="glyphicon glyphicon-trash"></span>'), comment_path(id: comment.id, update_id: update.id), remote: true, method: :delete, data: { confirm: 'Are you sure?' } ,class: 'delete_icon'%>
+
+            
+
+          
+
           <% end %>  
           </div>
+          <div style="clear:both"></div>
           <div class="text-muted">
             <%= time_ago_in_words(comment.created_at)%>
           </div>

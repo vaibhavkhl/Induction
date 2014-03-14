@@ -1,6 +1,7 @@
 <div class="mentor row">
 	<div class="col-lg-2">
 		<%= image_tag current_user.avatar.url(:thumb), class: 'img-rounded' %>
+		<div class="name"><%= current_user.name %></div>
 	</div>
     <div class="col-lg-10">
 
@@ -17,8 +18,8 @@
 		<div class="tab-content">
 		<% current_user.mentees.each do |mentee| %>
 		 
-		 
-		  <div class="tab-pane updates_mentee" id="<%= mentee.id %>">
+	
+		  <div class="tab-pane" id="<%= mentee.id %>" >
 		    <% @previous_updates = mentee.updates  %>  
 		    <%= render 'updates/previous_updates' %>
 		  </div>  

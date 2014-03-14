@@ -33,7 +33,7 @@ class Ability
     if user.has_role? :superadmin
       can :manage, :all
     elsif user.has_role? :admin
-      can :manage, :all
+      can [:admin_home, :tag_mentor, :tag_mentor_update, :edit_role, :import_users, :view_mentees_updates]
     else
       can [:associate_home, :create_update, :create_comment, :destroy_comment], User
     end

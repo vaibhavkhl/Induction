@@ -1,1 +1,1 @@
-$('.updates_mentee').html("<%= escape_javascript(render(partial: 'updates/previous_updates' , :collection => @previous_updates)) %>");
+$('#<%= @mentee.id %>').html("<%= escape_javascript(render(partial: 'updates/previous_updates' )) %>");

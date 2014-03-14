@@ -1,3 +1,9 @@
 //$('.updates_mentee').remove();
-$('.updates_mentee').html("<%= escape_javascript(render(partial: 'updates/previous_updates' , :collection => @previous_updates)) %>");
+$('#<%= @mentee.id %>').html("<%= escape_javascript(render(partial: 'updates/previous_updates')) %>");
 //$('.updates_mentee').show();
+// $(".comment_form").bind("ajax:complete", function(event,xhr,status){
+//   $('#comment').val('');
+// }
+// $(".comment_form").bind("ajax:send", function(e){
+//    $("#comment").val('');
+// });
