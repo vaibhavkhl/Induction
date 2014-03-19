@@ -4,7 +4,8 @@ module Users::AdminsHelper
 	users.select { |user| user.mentors.count > 0 }
   end
   def get_associates
-     User.all.select { |user| user.has_role :admin }
+    users = User.all
+    users.select { |user| user.has_role? :associate }
   end
   # def get_user(user_id)
   #    User.find_by(id: user_id)    
