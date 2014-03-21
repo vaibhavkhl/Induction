@@ -17,7 +17,7 @@ OdcInduction::Application.routes.draw do
    
    post '/import_users' => 'users/admins#import_users'
    get '/mentees_updates' => 'users/admins#view_mentees_updates'
-   
+   post '/email_updates' => 'users/admins#email_updates'
    delete '/destroy_user' => 'users/admins#destroy_user'
    #delete '/destroy_comment' => 'users/associates#destroy_comment'
 

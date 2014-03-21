@@ -20,31 +20,34 @@
 <table id="users" class="table table-striped">
     <thead>
         <tr>
-            <th style="width:5%;"></th>
             <th>Employee ID</th>
             <th>Name</th>
             <th>Email Id</th>
             <th>Mobile No.</th>
             <th>Current Role</th>
             <th>Select Role</th>
-            <th></th>
         </tr>
     </thead>
     <tbody>
     <% @users.each do |user| %>
     	<tr>
-    	  <td></td>
     	  <td><%= user.emp_id %></td>
     	  <td><%= user.name %></td>
-		    <td><%= user.email %></td>
-		    <td><%= user.phn_no %></td>z
-		    <td><%= user.roles[0].name unless user.roles.empty? %></td>
-        <td>
-            <%= form_tag edit_role_path do %>
-            <%= hidden_field_tag 'user_id', user.id %>
-       <%= select_tag "role_id", options_from_collection_for_select(@roles, 'id', 'name') %></td>
-        <td><%= submit_tag "Save" %></td>
+		  <td><%= user.email %></td>
+		  <td><%= user.phn_no %></td>z
+		  <td><%= user.roles[0].name unless user.roles.empty? %></td>
+          <td><%= form_tag edit_role_path do %>
+                <table>
+                  <tbody>
+                    <tr>
+                      <%= hidden_field_tag 'user_id', user.id %>
+                      <td><%= select_tag "role_id", options_from_collection_for_select(@roles, 'id', 'name') %></td>
+                      <td><%= submit_tag "Save" %></td>
+                    </tr>
+                  </tbody>
+                </table>
   		    <% end %>
+          </td>
         </tr>
 	<% end %>
     </tbody>

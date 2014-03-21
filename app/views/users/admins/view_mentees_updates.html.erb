@@ -28,7 +28,7 @@
     	<td>Emp Id</td>
     	<td>mentor Name</td>
     	<td>Latest Update</td>
-    	<td>Time</td>
+    	<td>Date</td>
     </tr>
   </thead>
   <tbody>
@@ -37,13 +37,13 @@
 
     <tr>
       <td>
-        <a href="#<%= mentee.id %>" data-toggle="tab"><%= mentee.email %></a>
+        <a href="#<%= mentee.id %>" data-toggle="tab"><%= mentee.name %></a>
       </td>
       <td><%= mentee.emp_id %></td>
-      <td><%= mentee.mentors.first.email %></td>
+      <td><%= mentee.mentors.first.name %></td>
         <% unless mentee.updates.empty?%> 
       <td><%= mentee.updates.first.content %> </td>
-      <td><%= time_ago_in_words(mentee.updates.first.created_at) %></td>
+      <td><%= mentee.updates.first.created_at.strftime("%d %B %Y") %></td>
         <% end %>
     </tr>
 <% end %>
@@ -65,4 +65,9 @@
 
     <div>
      
+</div>
+<div>
+  <%= form_tag email_updates_path %>
+  Mail me all the updates<%= email_field_tag 'email'%>
+  <%= submit_tag %>
 </div>

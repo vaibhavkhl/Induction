@@ -24,7 +24,7 @@
 <div class="col-lg-10">
   
 <h3>List of Users</h3>
-<hr />
+<hr/>
 <table id="users" class="table table-striped">
     <thead>
         <tr>
@@ -52,7 +52,7 @@
 		    <td><%= user.location %></td>
 		    <td><%= user.roles[0].name unless user.roles.empty? %></td>
             
-  		  <td><%= link_to 'Destroy', destroy_user_path(user_id: user.id), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-primary btn-sm'%></td>  
+  		  <td><%= link_to raw('<span class="glyphicon glyphicon-trash"></span>'), destroy_user_path(user_id: user.id), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-primary btn-sm'%></td>  
           
       </tr>
 	<% end %>

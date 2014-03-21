@@ -21,13 +21,18 @@ class Users::AdminsController <  ApplicationController
     	redirect_to tag_mentor_path
     end
 
+    def change_role
+        @users = User.all
+        @roles = Role.all
+    end
+    
     def edit_role
     	p "------ppppppppppppppppppp--#{params}"
     	user = User.find_by(id: params[:user_id])
     	role = Role.find_by(id: params[:role_id])
     	user.roles.clear
     	user.roles << role
-    	redirect_to admin_path
+    	redirect_to change_role_path
     end
 
     def import_users
@@ -36,11 +41,6 @@ class Users::AdminsController <  ApplicationController
         redirect_to admin_path
     end
     
-    def view_mentees_updates
-        @mentees = get_mentees
-        @comment = current_user.comments.build
-    end
-
     def edit_users
     end
 
@@ -51,8 +51,15 @@ class Users::AdminsController <  ApplicationController
         redirect_to admin_path
     end
 
-    def change_role
-        @users = User.all
-        @roles = Role.all
+    def view_mentees_updates
+        @mentees = get_mentees
+        @comment = current_user.comments.build
+    end
+
+    def email_updates
+        email_add = params[:email]
+        UserMailer.mentees_updates_email(email_add).deliver
+        flash[:success] = "Successfully emailed"
+        redirect_to mentees_updates_path 
     end
 end

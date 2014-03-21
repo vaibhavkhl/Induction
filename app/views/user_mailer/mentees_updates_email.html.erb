@@ -1,0 +1,28 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+    	<td>Name</td>
+    	<td>Emp Id</td>
+    	<td>mentor Name</td>
+    	<td>Latest Update</td>
+    	<td>Date</td>
+    </tr>
+  </thead>
+  <tbody>
+
+<% @mentees.each do |mentee| %>
+
+    <tr>
+      <td>
+        <%= mentee.name %>
+      </td>
+      <td><%= mentee.emp_id %></td>
+      <td><%= mentee.mentors.first.name %></td>
+        <% unless mentee.updates.empty?%> 
+      <td><%= mentee.updates.first.content %> </td>
+      <td><%= mentee.updates.first.created_at.strftime("%d %B %Y") %></td>
+        <% end %>
+    </tr>
+<% end %>
+</tbody>
+</table>

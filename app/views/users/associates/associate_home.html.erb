@@ -1,25 +1,9 @@
-Associate home page
+<div class="col-lg-2">
+        <%= image_tag current_user.avatar.url(:thumb), class: 'img-rounded' %>
+        <div class="name"><%= current_user.name %></div>
+    </div>
 
-<%= current_user.email %>
-
-<%= image_tag current_user.avatar.url(:thumb) %>
+<div><h3>You do not have any mentor assigned.</h3></div>
 
 
-<!-- <% unless current_user.mentees.empty?%>
-	<% unless current_user.mentees.first.updates.empty?%>
-        <% current_user.mentees.first.updates.each do |update| %>
-           Update: <%= update.content %></br>
 
-            Comment: <%= update.comments.last.content unless update.comments.empty?  %></br>
-
-            <%= form_for(@comment, url: create_comment_path) do |f| %>
-            <%= hidden_field_tag 'update_id', update.id %>   
-            <%= f.label 'Add Comment'%>
-            <%= f.text_area :content %>
-            
-            <%= f.submit "Done", class: "btn btn-large btn-primary" %>
-            </br>
-            <% end %>
-        <% end %>
-    <% end %>
-<% end %> -->

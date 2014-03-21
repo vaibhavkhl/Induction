@@ -22,29 +22,34 @@
     <h3>List of New Joinees</h3>
     <hr/>
 <table id= "users" class="table table-striped">
-    <thead>
-        <tr>
-            <th style="width:5%;"></th>
+  <thead>
+    <tr>
             <th>Email</th>
             <th>Current Mentors</th>
             <th>Select Mentors</th>
-            <th></th>
-        </tr>
-    </thead>
-    <% @users.each do |user|%>
-    	<%= form_tag tag_mentor_path do %>
+        
+    </tr>
+  </thead>
+  <tbody>
+    <% get_associates.each do |user|%>
     	<tr>
-    	  <td></td>
-          <td><%= user.email %></td>
-    	  <td><%= user.mentors.first.email unless user.mentors.empty?%></td>
-    	      <%= hidden_field_tag 'mentee_id', user.id %>
-
-          <td><input type="text" list="mentors" name="email" ></td>
-          
-    	  <td><%= submit_tag "Save" %></td>
-    	</tr>
-    	<% end %>
+        <td><%= user.email %></td>
+        <td><%= user.mentors.first.email unless user.mentors.empty?%></td>
+        <td><%= form_tag tag_mentor_path do %>
+              <table>
+                <tbody>
+                  <tr>
+    	              <%= hidden_field_tag 'mentee_id', user.id %>
+                    <td><input type="text" list="mentors" name="email" ></td>
+                    <td><%= submit_tag "Save" %></td>
+    	            </tr>
+                </tbody>
+              </table> 
+            <% end %>
+        </td>
+      </tr>
     <% end %>
+  </tbody>
 </table>
 <datalist id="mentors">
 <% get_associates.each do |user| %>
