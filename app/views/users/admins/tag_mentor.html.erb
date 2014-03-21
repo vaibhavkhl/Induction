@@ -24,25 +24,24 @@
 <table id= "users" class="table table-striped">
   <thead>
     <tr>
-            <th>Email</th>
-            <th>Current Mentors</th>
-            <th>Select Mentors</th>
-        
+      <th>Email</th>
+      <th>Current Mentors</th>
+      <th>Select Mentors</th>   
     </tr>
   </thead>
   <tbody>
     <% get_associates.each do |user|%>
-    	<tr>
+      <tr>
         <td><%= user.email %></td>
         <td><%= user.mentors.first.email unless user.mentors.empty?%></td>
         <td><%= form_tag tag_mentor_path do %>
               <table>
                 <tbody>
                   <tr>
-    	              <%= hidden_field_tag 'mentee_id', user.id %>
+                    <%= hidden_field_tag 'mentee_id', user.id %>
                     <td><input type="text" list="mentors" name="email" ></td>
                     <td><%= submit_tag "Save" %></td>
-    	            </tr>
+                  </tr>
                 </tbody>
               </table> 
             <% end %>
