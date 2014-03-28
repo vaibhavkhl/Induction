@@ -43,9 +43,9 @@ gem 'devise'
 gem 'cancan'
 
 group :devutility do
-  #gem "mysql2"
-  #gem "distribute", git: 'git://githuben.intranet.mckinsey.com/AppDev/distribute.git'
-  #gem "crypto", git: 'git://githuben.intranet.mckinsey.com/AppDev/crypto.git'
+  gem "mysql2"
+  gem "distribute", git: 'git://githuben.intranet.mckinsey.com/AppDev/distribute.git'
+  gem "crypto", git: 'git://githuben.intranet.mckinsey.com/AppDev/crypto.git'
   gem 'capistrano' , '2.9.0'
   gem 'rvm-capistrano'
 end
@@ -57,8 +57,8 @@ gem 'roo'
 gem 'paperclip'
 
 group :development do
-  gem 'better_errors'
-  gem 'letter_opener'
+	gem 'better_errors'
+	gem 'letter_opener'
 end
 
 group :doc do
