@@ -8,6 +8,6 @@
 Role.create(name: 'associate')
 Role.create(name: 'admin')
 Role.create(name: 'superadmin')
-User.create(email: 'Vaibhav_Kohli@external.mckinsey.com', password: 'vaibhav12')
+User.create(email: '', password: '**')
 User.first.roles.clear
 User.first.roles << Role.last
