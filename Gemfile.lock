@@ -1,11 +1,9 @@
 GIT
-  remote: git://githuben.intranet.mckinsey.com/AppDev/crypto.git
   revision: 4fad17c4b0e2c860505af1f56c72f0e370b03949
   specs:
     crypto (0.0.4)
 
 GIT
-  remote: git://githuben.intranet.mckinsey.com/AppDev/distribute.git
   revision: 61cdd72f409f544f7fc74803c4212431a5155aca
   specs:
     distribute (0.4.2)
