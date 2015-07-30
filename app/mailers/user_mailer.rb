@@ -3,7 +3,7 @@ class UserMailer < ActionMailer::Base
   include Users::AdminsHelper
   def welcome_email(user)
   	@user = user
-    @url = 'dev-utility-lx53.amdc.mckinsey.com/ODCInduction'
+    @url = 'server-url'
     mail(to: user.email, subject: 'Welcome to ODCInduction') do |format|
       format.html #{ render layout: 'my_layout' }
       #format.text
