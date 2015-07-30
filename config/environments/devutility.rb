@@ -88,8 +88,8 @@ OdcInduction::Application.configure do
   config.action_mailer.default :mime_version => "1.0"
   config.action_mailer.default :implicit_parts_order => [ "text/html", "text/plain"]
   config.action_mailer.smtp_settings = {
-    :address => "mailhub.mckinsey.com",
-    :domain => "mailhub.mckinsey.com",
+    :address => "",
+    :domain => "",
     :port => 25
   }
 end
